@@ -1,2 +1,6 @@
-/node_modules/
-npm-debug.log
+node_modules/
+commands.txt
+AZ_locations.sql
+co_locations.sql
+yabe.2016-05-19.sql
+ssh 57c21cb32d5271d535000027@reedling5-reedling.rh

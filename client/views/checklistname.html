@@ -1,0 +1,11 @@
+<div class='container-fluid'>
+    <div class="col-md-3 content">
+      <div class="form group">
+          <input type="text" ng-model="checklist" class="form-control"  placeholder="Checklist">
+      </div>
+    <button type="button" class="btn btn-default" ng-click="checklistCtrl.add(checklist)">Add Checklist...</button>
+    <ul class="list-unstyled" id="thelist">
+      <li ng-repeat="checklist in checklists">{{checklist.checklistname}}</li>
+    </ul>
+  </div>
+</div>

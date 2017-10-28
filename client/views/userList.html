@@ -1,0 +1,26 @@
+<div class='container-fluid'>
+  <div class="col-md-5 content">
+  <div style="display:inline-block; min-height:290px;">
+
+<table class="table table-striped table-bordered table-condensed  ">
+  <thead>
+      <tr>
+        <th>#</th>
+        <th>User Name</th>
+        <th>Checklist</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr ng-repeat="user in userList">
+        <td>{{$index + 1}}</td>
+        <td><a href="#/user/{{user.id}}">{{user.fullname}}</a></td>
+        <td width="38%">{{user.checklistname}}</td>
+      </tr>
+  </tbody>
+</table>
+
+
+   </div>
+   </div>
+
+</div>

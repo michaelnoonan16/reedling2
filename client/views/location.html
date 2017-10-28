@@ -1,0 +1,17 @@
+<div class='container-fluid'>
+    <div class="col-md-3 content">
+      <div class="form group">
+
+      <input type="text" ng-model="location" typeahead="checklistitem.commonname for checklistitem in checklistitems | filter:$viewValue | limitTo:8" class="form-control"  placeholder="Location Name">
+      
+     <input type="text" ng-model="parent" uib-typeahead="location.locname for location in parents | filter:$viewValue | limitTo:8" class="form-control"  placeholder="Parent Location">
+
+      <input type="text" ng-model="country" uib-typeahead="country.name for country in countries | filter:$viewValue | limitTo:8" class="form-control" placeholder="Country">
+
+      </div>
+    <button type="button" class="btn btn-default" ng-click="locationCtrl.add(location,country)">Add...</button>
+    <ul class="list-unstyled" id="thelist">
+      <li ng-repeat="location in locations"><a href="#/location/{{location.id}}">{{location.locname}}, {{location.cname}}</a></li>
+    </ul>
+  </div>
+</div>

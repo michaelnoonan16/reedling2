@@ -1,0 +1,41 @@
+  <div class='container-fluid'>
+    <div class="col-md-3 content">
+      <h4>{{typeahead.visit.date |  date:'longDate'}}
+      {{typeahead.visit.location}}</h4>
+      <div ng-show="typeahead.visit.showNew">
+        <button type="button" class="btn btn-default" ng-click="typeahead.new()">New</button>
+        </div>
+      <div uib-collapse="isCollapsed">
+      <div style="display:inline-block; min-height:290px;">
+
+  <p class="input-group">
+    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="typeahead.visit.date" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+    <span class="input-group-btn">
+      <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+    </span>
+    </p>
+      <h4>Location</h4>
+      <input type="text" ng-model="typeahead.visit.location" uib-typeahead="location.locname for location in locations | filter:$viewValue | limitTo:8" class="form-control">
+      <button type="button" class="btn btn-default" ng-click="typeahead.saveVisit()">OK</button>
+      </div>
+      </div>
+      <ul class="list-unstyled" id="thelist">
+        <li ng-repeat="species in typeahead.visit.sightings.species" ng-click="typeahead.showSpeciesDetails($index)">{{species.speciesname}} {{species.heardonly==true?'(HO)':''}}
+          <div class="alert alert-success" ng-show="species.opened">
+            <div >
+              <small>Breeding Range: {{species.brange}}</small><br/>
+              <small>Detailed Breeding Range: {{species.dbr}}</small><br/>
+              <small>Non-breeding Range: {{species.nbr}}</small><br/>
+              <small>Note: {{species.note}}</small><br/>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="form group">
+      <input type="text" ng-model="selected" uib-typeahead="checklistitem.commonname for checklistitem in checklistitems | filter:$viewValue | limitTo:8" class="form-control">
+      <input type="checkbox" ng-model="heardOnly">Heard Only<br>
+      </div>
+    <button type="button" class="btn btn-default" ng-click="typeahead.add(selected)">Add...</button>
+    <button type="button" class="btn btn-danger" ng-show="typeahead.visitId" ng-click="typeahead.deleteSiteVisit()">Delete</button>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="Reedling">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Reedling</title>
+        <link rel="stylesheet" href="stylesheets/normalize.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    </head>
+    <body ng-controller="MainCtrl as main" ng-class="{loading:loadingView}">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav  navbar-nav">
+            <li>
+            <div class="navbar-header pull-left">
+                <a class="logo navbar-brand" href="#/"><img src="images/REEDLING.jpg"></a>
+            </div>
+            </li>
+            <li><a href="#/observations">Observations</a></li>
+            <li><a href="#/reports">Reports</a></li>
+            <li><a href="#/location">Locations</a></li>
+            <li><a href="#/countries">Countries</a></li>
+            <li><a href="#/checklistnames">Checklist Names</a></li>
+            <li><a href="#/checklistDetail">Checklist Details</a></li>
+            <li><a href="#/sitevisits">Site Visit List</a></li>
+            <li><a href="#/users">Users</a></li>
+            <li><a href="/logout">Logout</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+    </div>
+    <div ng-view=""></div>
+    <div class="modal"></div>
+    <script src="javascripts/head.load.min.js"></script>
+    <script src="javascripts/boot.js"></script>
+    </body>
+</html>

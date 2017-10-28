@@ -1,0 +1,11 @@
+<div class='container-fluid'>
+    <div class="col-md-3 content">
+      <div class="form group">
+          <input type="text" ng-model="country" class="form-control"  placeholder="Country">
+      </div>
+    <button type="button" class="btn btn-default" ng-click="countryCtrl.add(country)">Add Country...</button>
+    <ul class="list-unstyled" id="thelist">
+      <li ng-repeat="country in countries">{{country.name}}</li>
+    </ul>
+  </div>
+</div>

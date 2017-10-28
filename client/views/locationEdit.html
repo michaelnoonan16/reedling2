@@ -1,0 +1,26 @@
+<div class='container-fluid'>
+    <div class="col-md-3 content">
+      <div class="form group">
+
+      <input type="text" ng-model="location" typeahead="checklistitem.commonname for checklistitem in checklistitems | filter:$viewValue | limitTo:8" class="form-control"  placeholder="Location Name" name="location">
+      
+     <input type="text" ng-model="parent" uib-typeahead="location.locname for location in parents | filter:$viewValue | limitTo:8" class="form-control"  placeholder="Parent Location" name="parent">
+
+      <input type="text" ng-model="country" uib-typeahead="country.name for country in countries | filter:$viewValue | limitTo:8" class="form-control" placeholder="Country" name="country">
+
+      <div >
+      Click map to place markers
+      <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}">
+      <ng-map zoom="{{zoom}}" center="{{mapCentre}}" on-zoom-changed="locationEditCtrl.zoomChanged()" on-click="locationEditCtrl.placeMarker()">
+        <marker position="{{mapCentre}}" ></marker>
+      </ng-map>
+      </div>
+      </div>
+      <input type="text" ng-model="lat" class="form-control" placeholder="latitude" name="lat">
+      <input type="text" ng-model="long" class="form-control" placeholder="longitude" name="long">
+      <input type="text" ng-model="zoom" class="form-control" placeholder="zoom" name="zoom">
+      </div>
+      <button type="button" class="btn btn-default" ng-click="locationEditCtrl.update()">Save</button>
+      <button type="button" class="btn btn-default" ng-click="locationEditCtrl.Cancel()">Cancel</button>
+  </div>
+</div>
