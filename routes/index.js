@@ -66,10 +66,10 @@ const params = url.parse(connectionString);
 const auth = params.auth.split(':');
 
 const config = {
-  user: auth[0],
-  password: auth[1],
-  host: params.hostname,
-  port: params.port,
+  user: process.env.POSTGRESQL_USER||auth[0],
+  password: process.env.POSTGRESQL_PASSWORD||auth[1],
+  host: process.env.POSTGRESQL_SERVICE_HOST||params.hostname,
+  port: process.env.POSTGRESQL_SERVICE_PORT||params.port,
   database: params.pathname.split('/')[1]//,
   //ssl: true
 };
