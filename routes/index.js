@@ -466,6 +466,9 @@ router.get('/api/v1/countries', function(req, res) {
 router.get('/api/v1/locations', function(req, res) {
     var result = pool.query("select l.id as id, l.name as locname,c.name as cname  from location l join country c on country_id=c.id order by l.name nulls first;",
             [],function (err, result) {
+                if (err){
+                    return console.error ('query locations error'+err.message,err.stack)
+                }
                 return res.json(result.rows);
     });
 });
