@@ -410,6 +410,9 @@ router.post('/api/v1/checklist', function(req, res) {
 router.get('/api/v1/user', function(req, res) {
     var result = pool.query('select ud.id,fullname,checklistname from userdetail ud join checklistname cl on cl.id=ud.defaultchecklistname_id'
         ,[],function (err, result) {
+            if (err) {
+                return console.error('query error', err.message, err.stack)
+            }
         return res.json(result.rows);
     });
 });
