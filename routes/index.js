@@ -73,7 +73,15 @@ const config = {
   database: params.pathname.split('/')[1]//,
   //ssl: true
 };
+console.log(config);
 var pool = new pg.Pool(config);
+var resultTest = pool.query("select 1;",
+[],function (err, resultTest) {
+    if (err) {
+    console.log('query error', err.message, err.stack)
+}
+    console.log(resultTest.rows[0]);
+});
 
 
 router.get('/', function(req, res, next) {
